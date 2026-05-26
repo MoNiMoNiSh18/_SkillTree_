@@ -12,7 +12,11 @@ const skillRoutes = require("./routes/skillRoutes");
 const companyRoutes = require("./routes/companyRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const aiRoutes = require("./routes/aiRoutes");
+const roadmapRoutes = require("./routes/roadmapRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
+app.use("/api/tasks", taskRoutes);
+app.use("/api/roadmap", roadmapRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/skills", skillRoutes);
