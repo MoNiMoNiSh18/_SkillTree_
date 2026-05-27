@@ -1,5 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
+import SkillTreeGraph from "../components/SkillTreeGraph";
 
 function Roadmap() {
 
@@ -10,60 +12,98 @@ function Roadmap() {
 
   const analyze = async () => {
 
-    const res = await API.post(
-      `/roadmap/${student_id}`,
-      { role }
-    );
+    try {
 
-    setResult(res.data);
+      const res = await API.post(
+        `/roadmap/${student_id}`,
+        { role }
+      );
+
+      setResult(res.data);
+
+    } catch (err) {
+
+      console.log(err);
+
+      alert("Failed to analyze roadmap");
+    }
   };
 
   return (
-    <div style={{ padding: "20px" }}>
 
-      <h2>SkillTree Roadmap</h2>
+    <div className="min-h-screen bg-slate-900 text-white p-6">
 
-      <select onChange={(e) => setRole(e.target.value)}>
+      <Navbar />
 
-        <option>Select Role</option>
+      <div className="max-w-5xl mx-auto">
 
-        <option>Full Stack Developer</option>
+        {/* HEADER */}
 
-        <option>AI Engineer</option>
+        <div className="mb-10">
 
-        <option>Blockchain Developer</option>
+          <h1 className="text-4xl font-bold mb-2">
+            🌳 SkillTree Roadmap
+          </h1>
 
-      </select>
-
-      <br /><br />
-
-      <button onClick={analyze}>
-        Analyze Skill Gap
-      </button>
-
-      {result && (
-        <div>
-
-          <h3>{result.role}</h3>
-
-          <h4>You Have:</h4>
-
-          <ul>
-            {result.have.map((s, i) => (
-              <li key={i}>✅ {s}</li>
-            ))}
-          </ul>
-
-          <h4>Missing Skills:</h4>
-
-          <ul>
-            {result.missing.map((s, i) => (
-              <li key={i}>❌ {s}</li>
-            ))}
-          </ul>
+          <p className="text-slate-400">
+            Track your growth branch by branch
+          </p>
 
         </div>
-      )}
+
+        {/* SELECT ROLE */}
+
+        <div className="bg-slate-800 rounded-3xl p-6 shadow-xl mb-8">
+
+          <h2 className="text-2xl font-semibold mb-4">
+            Choose Career Path
+          </h2>
+
+          <div className="flex flex-col md:flex-row gap-4">
+
+            <select
+              onChange={(e) => setRole(e.target.value)}
+              className="flex-1 bg-slate-700 p-4 rounded-xl outline-none"
+            >
+
+              <option>Select Role</option>
+
+              <option>Full Stack Developer</option>
+
+              <option>AI Engineer</option>
+
+              <option>Blockchain Developer</option>
+
+            </select>
+
+            <button
+              onClick={analyze}
+              className="bg-cyan-500 hover:bg-cyan-600 transition px-6 py-4 rounded-xl font-bold"
+            >
+              Analyze Skill Gap
+            </button>
+
+          </div>
+
+        </div>
+
+{result && (
+
+  <div className="mt-10">
+
+    <h2 className="text-3xl font-bold mb-6">
+      🌳 Skill Progression Tree
+    </h2>
+
+    <SkillTreeGraph
+      have={result.have}
+      missing={result.missing}
+    />
+
+  </div>
+
+)}
+      </div>
 
     </div>
   );

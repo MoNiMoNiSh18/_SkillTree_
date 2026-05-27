@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function Tasks() {
 
@@ -33,6 +34,8 @@ function Tasks() {
     };
 
     return (
+        <div className="min-h-screen bg-slate-900 text-white p-6">
+  <Navbar />
         <div style={{ padding: "20px" }}>
 
             <h2>Daily Skill Tasks</h2>
@@ -86,6 +89,7 @@ function Tasks() {
 
             ))}
 
+        </div>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Navbar from "../components/Navbar";
 import Editor from "@monaco-editor/react";
 
 function Practice() {
@@ -11,6 +11,8 @@ function Practice() {
     const [language, setLanguage] = useState("python");
 
     return (
+        <div className="min-h-screen bg-slate-900 text-white p-6">
+  <Navbar />
         <div style={{ padding: "20px" }}>
 
             <h2>Practice Arena</h2>
@@ -44,6 +46,7 @@ function Practice() {
                 Run Code
             </button>
 
+        </div>
         </div>
     );
 }

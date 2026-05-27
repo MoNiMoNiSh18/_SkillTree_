@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function Companies() {
   const [companies, setCompanies] = useState([]);
@@ -15,6 +16,8 @@ useEffect(() => {
 }, [student_id]);
 
   return (
+    <div className="min-h-screen bg-slate-900 text-white p-6">
+  <Navbar />
     <div style={{ padding: "20px" }}>
       <h2>Eligible Companies</h2>
 
@@ -29,6 +32,7 @@ useEffect(() => {
           ))}
         </ul>
       )}
+    </div>
     </div>
   );
 }
