@@ -23,38 +23,93 @@ exports.getCompanies = (req, res) => {
 };
 
 exports.checkEligibility = (req, res) => {
+
     const { student_id } = req.params;
 
     const query = `
-        SELECT 
+
+        SELECT
             c.id,
             c.name,
             c.min_cgpa,
             c.required_skill,
-            (
-                SELECT cgpa FROM students WHERE id = ?
-            ) AS cgpa,
-            CASE 
-                WHEN (
-                    SELECT cgpa FROM students WHERE id = ?
-                ) >= c.min_cgpa
-                AND c.required_skill IN (
-                    SELECT sk.name 
+            s.cgpa,
+
+            CASE
+                WHEN s.cgpa >= c.min_cgpa
+                THEN 1
+                ELSE 0
+            END AS cgpa_match,
+
+            CASE
+                WHEN EXISTS (
+                    SELECT 1
                     FROM student_skills ss
-                    JOIN skills sk ON ss.skill_id = sk.id
-                    WHERE ss.student_id = ?
+                    JOIN skills sk
+                    ON ss.skill_id = sk.id
+                    WHERE ss.student_id = s.id
+                    AND LOWER(sk.name) =
+                    LOWER(c.required_skill)
                 )
-                THEN 'Eligible'
-                ELSE 'Not Eligible'
-            END AS status
+                THEN 1
+                ELSE 0
+            END AS skill_match
+
         FROM companies c
+
+        JOIN students s
+        ON s.id = ?
     `;
 
-    db.query(query, [student_id, student_id, student_id], (err, results) => {
-        if (err) return res.status(500).json(err);
+    db.query(
+        query,
+        [student_id],
+        (err, results) => {
 
-        res.json(results);
-    });
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            const formatted = results.map((c) => {
+
+                let readiness = 0;
+
+                if (c.cgpa_match) readiness += 40;
+
+                if (c.skill_match) readiness += 60;
+
+                return {
+
+                    ...c,
+
+                    readiness,
+
+                    status:
+                        readiness >= 80
+                        ? "Eligible"
+                        : "Locked",
+
+                    strengths: [
+                        ...(c.cgpa_match
+                            ? ["CGPA Match"]
+                            : []),
+
+                        ...(c.skill_match
+                            ? [c.required_skill]
+                            : [])
+                    ],
+
+                    missing: [
+                        ...(!c.skill_match
+                            ? [c.required_skill]
+                            : [])
+                    ]
+                };
+            });
+
+            res.json(formatted);
+        }
+    );
 };
 
 exports.dashboardStats = (req, res) => {

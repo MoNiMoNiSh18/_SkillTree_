@@ -62,17 +62,17 @@ function Roadmap() {
           <div className="flex flex-col md:flex-row gap-4">
 
             <select
-              onChange={(e) => setRole(e.target.value)}
-              className="flex-1 bg-slate-700 p-4 rounded-xl outline-none"
+            className="bg-slate-800 text-white p-3 rounded-xl border border-slate-600"
+            onChange={(e) => setRole(e.target.value)}
             >
 
-              <option>Select Role</option>
+              <option className="text-black">Select Role</option>
 
-              <option>Full Stack Developer</option>
+              <option className="text-black">Full Stack Developer</option>
 
-              <option>AI Engineer</option>
+              <option className="text-black">AI Engineer</option>
 
-              <option>Blockchain Developer</option>
+              <option className="text-black">Blockchain Developer</option>
 
             </select>
 

@@ -23,20 +23,72 @@ function Chatbot() {
   }
 };
 
-  return (
-    <div style={{ marginTop: "30px" }}>
-      <h3>Assistant</h3>
+ return (
+
+  <div className="mt-10">
+
+    {/* SUGGESTIONS */}
+
+    <div className="bg-slate-800 rounded-2xl p-5 mb-6">
+
+      <div className="flex flex-wrap gap-3">
+
+        <div className="bg-slate-700 px-4 py-2 rounded-xl text-sm">
+          What companies match my profile?
+        </div>
+
+        <div className="bg-slate-700 px-4 py-2 rounded-xl text-sm">
+          What should I learn next?
+        </div>
+
+        <div className="bg-slate-700 px-4 py-2 rounded-xl text-sm">
+          Improve placement readiness
+        </div>
+
+        <div className="bg-slate-700 px-4 py-2 rounded-xl text-sm">
+          Missing skills for AI Engineer
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* INPUT SECTION */}
+
+    <div className="flex gap-4 mb-6">
 
       <input
-        placeholder="Ask something..."
+        type="text"
+        placeholder="Ask about skills, placements and roadmap..."
         onChange={(e) => setMessage(e.target.value)}
+        className="flex-1 bg-slate-800 text-white p-4 rounded-2xl border border-slate-600 outline-none"
       />
 
-      <button onClick={sendMessage}>Send</button>
+      <button
+        onClick={sendMessage}
+        className="bg-cyan-500 hover:bg-cyan-600 transition px-6 rounded-2xl font-semibold"
+      >
+        Send
+      </button>
 
-      <p><b>Bot:</b> {reply}</p>
     </div>
-  );
-}
 
+    {/* BOT RESPONSE */}
+
+    <div className="bg-slate-800 text-white p-5 rounded-2xl border border-slate-700">
+
+      <p className="text-cyan-400 font-semibold mb-2">
+        AI Response
+      </p>
+
+      <p className="text-slate-200 leading-7">
+        {reply}
+      </p>
+
+    </div>
+
+  </div>
+
+);
+}
 export default Chatbot;

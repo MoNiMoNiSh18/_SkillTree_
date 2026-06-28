@@ -2,7 +2,7 @@ import { useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-
+import { Link } from "react-router-dom";
 function Resume() {
 
   const [file, setFile] = useState(null);
@@ -73,136 +73,146 @@ function Resume() {
     }
   };
 
-  return (
+return (
 
-    <div className="min-h-screen bg-slate-900 text-white p-6">
+  <div className="min-h-screen bg-[#0f172a] text-white flex">
 
-      <Navbar />
+    {/* SIDEBAR */}
 
-      <div className="max-w-5xl mx-auto">
+    <div className="w-72 bg-slate-900 border-r border-slate-800 p-6 flex flex-col justify-between">
 
-        {/* HEADER */}
+      <div>
 
-        <div className="mb-10">
+        <div className="mb-12">
 
-          <h1 className="text-4xl font-bold mb-2">
-            📄 AI Resume Analyzer
+          <h1 className="text-3xl font-bold">
+            SkillTree
           </h1>
 
-          <p className="text-slate-400">
-            Analyze your resume and track placement readiness
+          <p className="text-slate-400 mt-2 text-sm">
+            AI Career Ecosystem
           </p>
 
         </div>
 
-        {/* UPLOAD SECTION */}
+        <div className="flex flex-col gap-3">
 
-        <div className="bg-slate-800 rounded-3xl p-8 shadow-xl mb-10">
+          <button className="bg-slate-800 p-4 rounded-2xl border border-slate-700 text-left">
+            Resume
+          </button>
 
-          <h2 className="text-2xl font-semibold mb-6">
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* MAIN CONTENT */}
+
+    <div className="flex-1 p-10 overflow-y-auto">
+
+      {/* HEADER */}
+
+      <div className="mb-10">
+
+        <h1 className="text-4xl font-bold tracking-tight">
+          Resume Hub
+        </h1>
+
+        <p className="text-slate-400 mt-3 text-lg">
+          Analyze and build professional ATS-friendly resumes.
+        </p>
+
+      </div>
+
+      {/* ACTION CARDS */}
+
+      <div className="grid md:grid-cols-2 gap-8 mb-10">
+
+        {/* UPLOAD */}
+
+        <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-8">
+
+          <h2 className="text-2xl font-semibold mb-3">
             Upload Resume
           </h2>
+
+          <p className="text-slate-400 mb-6">
+            Upload your existing resume for AI skill analysis.
+          </p>
 
           <input
             type="file"
             onChange={(e) => setFile(e.target.files[0])}
-            className="mb-6 block"
+            className="mb-6 block w-full text-sm text-slate-300"
           />
 
           <button
             onClick={upload}
-            className="bg-cyan-500 hover:bg-cyan-600 transition px-8 py-4 rounded-xl font-bold"
+            className="bg-slate-700 hover:bg-slate-600 transition px-6 py-3 rounded-2xl border border-slate-600"
           >
             Analyze Resume
           </button>
 
         </div>
 
-        {/* RESULTS */}
+        {/* CREATE */}
 
-        {skills.length > 0 && (
+        <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-8">
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-2xl font-semibold mb-3">
+            Create Resume
+          </h2>
 
-            {/* READINESS */}
+          <p className="text-slate-400 mb-6">
+            Build a clean ATS-friendly resume using SkillTree templates.
+          </p>
 
-            <div className="bg-slate-800 rounded-3xl p-8 shadow-xl">
+          <Link
+            to="/resume-builder"
+            className="inline-block bg-cyan-500/20 hover:bg-cyan-500/30 transition px-6 py-3 rounded-2xl border border-cyan-500/20"
+          >
+            Create Resume
+          </Link>
 
-              <h2 className="text-2xl font-bold mb-6">
-                🌳 Placement Readiness
-              </h2>
-
-              <div className="w-full bg-slate-700 rounded-full h-8 overflow-hidden">
-
-                <div
-                  className={`h-8 text-center font-bold leading-8
-                  ${
-                    readiness >= 80
-                      ? "bg-green-500"
-
-                      : readiness >= 50
-                      ? "bg-yellow-500"
-
-                      : "bg-red-500"
-                  }`}
-                  style={{
-                    width: `${readiness}%`
-                  }}
-                >
-                  {readiness}%
-                </div>
-
-              </div>
-
-              <p className="mt-6 text-xl font-semibold">
-
-                {
-                  readiness >= 80
-                  ? "🚀 Placement Ready"
-
-                  : readiness >= 50
-                  ? "⚡ Improving Fast"
-
-                  : "🌱 Still Growing"
-                }
-
-              </p>
-
-            </div>
-
-            {/* DETECTED SKILLS */}
-
-            <div className="bg-slate-800 rounded-3xl p-8 shadow-xl">
-
-              <h2 className="text-2xl font-bold mb-6">
-                ✅ Detected Skills
-              </h2>
-
-              <div className="flex flex-wrap gap-3">
-
-                {skills.map((s, i) => (
-
-                  <div
-                    key={i}
-                    className="bg-cyan-500/20 border border-cyan-500/30 px-4 py-2 rounded-2xl"
-                  >
-                    {s}
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
-
-        )}
+        </div>
 
       </div>
 
+      {/* DETECTED SKILLS */}
+
+      {skills.length > 0 && (
+
+        <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-8">
+
+          <h2 className="text-2xl font-semibold mb-6">
+            Detected Skills
+          </h2>
+
+          <div className="flex flex-wrap gap-3">
+
+            {skills.map((s, i) => (
+
+              <div
+                key={i}
+                className="bg-slate-700 px-4 py-2 rounded-full text-sm"
+              >
+                {s}
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      )}
+
     </div>
-  );
+
+  </div>
+
+);
 }
 
 export default Resume;
