@@ -1,59 +1,85 @@
-# 🌳 SkillTree
-AI-powered student placement and skill tracking platform.
+# SkillTree
 
-## 🚀 Features
+SkillTree is a full-stack web application developed to help students prepare for campus placements. It combines resume building, resume analysis, career roadmaps, company readiness tracking, and interview practice into a single platform.
 
-- AI Resume Analysis
-- Placement Readiness Score
-- Visual Skill Tree Roadmaps
-- Daily Learning Tasks
-- XP & Streak System
-- Company Eligibility Checker
-- JWT Authentication
-- PDF Resume Parsing
-- Gamified Progress Tracking
-- Coding Practice Arena
-## 🛠 Tech Stack
+The idea for this project came from my own placement preparation. I noticed that students often use different websites for resumes, interview practice, coding, and career guidance. SkillTree aims to bring these features together so students can understand their current skill level and prepare more effectively.
 
-Frontend:
+## Features
+
+- Secure user authentication using JWT
+- Resume Builder with multiple templates
+- Resume Analyzer with skill extraction
+- Career Roadmaps for different software roles
+- Company Readiness Checker
+- Interview Simulator with company-based practice
+- Coding Practice Arena (In Progress)
+
+## Tech Stack
+
+**Frontend**
 - React.js
 - Tailwind CSS
-- React Flow
 
-Backend:
+**Backend**
 - Node.js
 - Express.js
 
-Database:
+**Database**
 - MySQL
 
-AI Features:
-- PDF Parsing
-- Skill Extraction
-- Readiness Engine
+**Authentication**
+- JWT (JSON Web Token)
 
-## ⚙️ Installation
+## Project Structure
 
-### Backend
+```
+SkillTree/
+├── client/
+├── server/
+└── README.md
+```
 
-cd server
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/MoNiMoNiSh18/SkillTree.git
+```
+
+Install dependencies
+
+```bash
 npm install
+```
+
+Start the frontend
+
+```bash
 npm start
+```
 
-### Frontend
+Start the backend
 
-cd client
-npm install
-npm start
+```bash
+npm run server
+```
 
-## 🌟 Future Scope
+## Future Improvements
 
-- AI-generated learning paths
-- Recruiter dashboard
-- ATS resume scoring
-- Smart company matching
-- Real-time coding assessment
+- AI Career Mentor
+- Company-specific interview database
+- Online code execution
+- Resume intelligence
+- Placement analytics
+- Webcam-based interview proctoring
 
-## 📌 Status
-Backend Completed ✅
-Frontend In Progress 🚧
+## Author
+
+**Monish V**
+
+B.E. Computer Science and Engineering
+
+Acharya Institute of Technology
+
+GitHub: https://github.com/MoNiMoNiSh18
