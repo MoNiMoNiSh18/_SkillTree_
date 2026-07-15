@@ -67,7 +67,12 @@ function Dashboard() {
           >
             Companies
           </Link>
-
+          <Link
+              to="/interview"
+              className="bg-slate-800 hover:bg-slate-700 transition p-4 rounded-2xl border border-slate-700"
+          >
+              Interview Simulator
+          </Link>
           <Link
             to="/roadmap"
             className="bg-slate-800 hover:bg-slate-700 transition p-4 rounded-2xl border border-slate-700"
