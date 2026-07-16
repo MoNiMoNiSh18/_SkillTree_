@@ -11,6 +11,8 @@ import ResumeBuilder from "./pages/ResumeBuilder";
 import InterviewSimulator from "./pages/InterviewSimulator";
 import InterviewSession from "./pages/InterviewSession";
 import InterviewReport from "./pages/InterviewReport";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 function App() {
   return (
     <Router>
@@ -26,6 +28,8 @@ function App() {
         <Route path="/interview" element={<InterviewSimulator />}/>
         <Route path="/interview-session" element={<InterviewSession />} />
         <Route path="/interview-report" element={<InterviewReport />}/>
+        <Route path="/forgot-password" element={<ForgotPassword />}/>
+        <Route path="/reset-password" element={<ResetPassword />}/>
       </Routes>
     </Router>
   );

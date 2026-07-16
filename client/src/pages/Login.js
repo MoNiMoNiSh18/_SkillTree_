@@ -1,7 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 function Login() {
 
@@ -41,7 +40,7 @@ function Login() {
       <div className="bg-slate-800 p-10 rounded-3xl shadow-2xl w-full max-w-md">
 
         <h1 className="text-4xl font-bold mb-2 text-center">
-          🌳 SkillTree
+          SkillTree
         </h1>
 
         <p className="text-slate-400 text-center mb-8">
@@ -57,12 +56,23 @@ function Login() {
         />
 
         <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-4 rounded-xl bg-slate-700 mb-6 outline-none"
-        />
+  type="password"
+  placeholder="Enter Password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  className="w-full p-4 rounded-xl bg-slate-700 outline-none"
+/>
+
+<div className="flex justify-end mt-2 mb-6">
+
+  <Link
+    to="/forgot-password"
+    className="text-sm text-cyan-400 hover:text-cyan-300 transition"
+  >
+    Forgot Password?
+  </Link>
+
+</div>
 
         <button
           onClick={handleLogin}

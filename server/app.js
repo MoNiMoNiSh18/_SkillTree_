@@ -14,6 +14,8 @@ const applicationRoutes = require("./routes/applicationRoutes");
 const aiRoutes = require("./routes/aiRoutes");
 const roadmapRoutes = require("./routes/roadmapRoutes");
 const readinessRoutes = require("./routes/readinessRoutes");
+const passwordRoutes = require("./routes/passwordRoutes");
+app.use("/api/password", passwordRoutes);
 app.use("/api/readiness", readinessRoutes);
 app.use("/api/roadmap", roadmapRoutes);
 app.use("/api/ai", aiRoutes);
