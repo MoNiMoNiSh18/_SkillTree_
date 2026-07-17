@@ -14,6 +14,7 @@ import InterviewSession from "./pages/InterviewSession";
 import InterviewReport from "./pages/InterviewReport";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <Router>
@@ -21,15 +22,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/companies" element={<Companies />} />
-        <Route path="/roadmap" element={<Roadmap />} />
-        <Route path="/practice" element={<Practice />} />
-        <Route path="/resume-builder" element={<ResumeBuilder />}/>
-        <Route path="/interview" element={<InterviewSimulator />}/>
-        <Route path="/interview-session" element={<InterviewSession />} />
-        <Route path="/interview-report" element={<InterviewReport />}/>
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/resume" element={<ProtectedRoute><Resume /></ProtectedRoute>} />
+        <Route path="/companies" element={<ProtectedRoute><Companies /></ProtectedRoute>} />
+        <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
+        <Route path="/practice" element={<ProtectedRoute><Practice /></ProtectedRoute>} />
+        <Route path="/resume-builder" element={<ProtectedRoute><ResumeBuilder /></ProtectedRoute>}/>
+        <Route path="/interview" element={<ProtectedRoute><InterviewSimulator /></ProtectedRoute>}/>
+        <Route path="/interview-session" element={<ProtectedRoute><InterviewSession /></ProtectedRoute>} />
+        <Route path="/interview-report" element={<ProtectedRoute><InterviewReport /></ProtectedRoute>}/>
         <Route path="/forgot-password" element={<ForgotPassword />}/>
         <Route path="/reset-password" element={<ResetPassword />}/>
       </Routes>

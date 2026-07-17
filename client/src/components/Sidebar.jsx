@@ -15,8 +15,10 @@ function Sidebar() {
     ];
 
     const handleLogout = () => {
-        localStorage.clear();
-        navigate("/");
+localStorage.removeItem("token");
+    localStorage.removeItem("student_id");
+    localStorage.removeItem("name");
+            navigate("/");
     };
 
     return (

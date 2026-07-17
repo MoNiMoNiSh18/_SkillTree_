@@ -3,6 +3,7 @@ import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 function Login() {
 
   const [email, setEmail] = useState("");
@@ -51,7 +52,13 @@ if (password.length < 6) {
       alert("Login failed");
     }
   };
+useEffect(() => {
 
+  if (localStorage.getItem("token")) {
+    navigate("/dashboard");
+  }
+
+}, [navigate]);
   return (
 
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">

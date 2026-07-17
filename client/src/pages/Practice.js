@@ -73,7 +73,7 @@ Score : 100/100`
 };
 
 return (
-<div className="min-h-screen bg-slate-900 text-white p-8">
+<div className="min-h-screen bg-slate-950 text-white p-8">
 
     <BackButton />
  <div className="grid lg:grid-cols-12 gap-6 mt-6">

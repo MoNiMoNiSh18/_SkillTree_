@@ -3,7 +3,9 @@ import API from "../services/api";
 import Chatbot from "../components/Chatbot";
 import { Link,useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+
 function Dashboard() {
+const [loading, setLoading] = useState(true);
   const [readiness, setReadiness] = useState(0);
   const [skills, setSkills] = useState([]);
   const studentName =localStorage.getItem("name");
@@ -11,20 +13,53 @@ function Dashboard() {
 const navigate=useNavigate();
   useEffect(() => {
 
-    API.get(`/skills/${student_id}`)
-      .then(res => setSkills(res.data));
+    setLoading(true);
 
-      API.get(`/readiness/${student_id}`)
-  .then(res => setReadiness(res.data.readiness_score));
+    Promise.all([
+        API.get(`/skills/${student_id}`),
+        API.get(`/readiness/${student_id}`)
+    ])
+    .then(([skillsRes, readinessRes]) => {
 
-  }, [student_id]);
+        setSkills(skillsRes.data);
+        setReadiness(readinessRes.data.readiness_score);
+
+    })
+    .finally(() => {
+
+        setLoading(false);
+
+    });
+
+}, [student_id]);
 const handleLogout = () => {
 
-    localStorage.clear();
+    localStorage.removeItem("token");
+    localStorage.removeItem("student_id");
+    localStorage.removeItem("name");
 
     navigate("/");
 
 };
+if (loading) {
+
+    return (
+
+        <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
+
+            <div className="text-center">
+
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyan-500 border-t-transparent mx-auto mb-4"></div>
+
+                <p>Loading dashboard...</p>
+
+            </div>
+
+        </div>
+
+    );
+
+}
   return (
 
   <div className="min-h-screen bg-[#0f172a] text-white flex">
@@ -127,5 +162,4 @@ width:`${readiness}%`
 
 );
 }
-
 export default Dashboard;

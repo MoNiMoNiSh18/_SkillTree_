@@ -3,8 +3,9 @@ import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
-function Resume() {
 
+function Resume() {
+const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
 
   const [skills, setSkills] = useState([]);
@@ -12,9 +13,8 @@ function Resume() {
   const [readiness, setReadiness] = useState(0);
 
   const navigate = useNavigate();
-
   const upload = async () => {
-
+    setLoading(true)
     const student_id = localStorage.getItem("student_id");
 
     console.log(
@@ -64,11 +64,11 @@ function Resume() {
       setReadiness(
         readinessRes.data.readiness_score
       );
-
+      setLoading(false);
     } catch (err) {
 
       console.error(err);
-
+      setLoading(false);
       alert("Upload failed");
     }
   };
@@ -115,11 +115,12 @@ return (
           />
 
           <button
-            onClick={upload}
-            className="bg-slate-700 hover:bg-slate-600 transition px-6 py-3 rounded-2xl border border-slate-600"
-          >
-            Analyze Resume
-          </button>
+    onClick={upload}
+    disabled={loading}
+    className="bg-slate-700 hover:bg-slate-600 disabled:bg-slate-600 disabled:cursor-not-allowed transition px-6 py-3 rounded-2xl border border-slate-600"
+>
+    {loading ? "Analyzing Resume..." : "Analyze Resume"}
+</button>
 
         </div>
 

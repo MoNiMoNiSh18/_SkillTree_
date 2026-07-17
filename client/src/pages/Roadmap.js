@@ -118,7 +118,21 @@ function Roadmap() {
         </div>
 
       )}
+      {!result && (
 
+<div className="bg-slate-800 border border-slate-700 rounded-3xl p-8 text-center mt-8">
+
+    <h2 className="text-2xl font-bold mb-2">
+        No Roadmap Yet
+    </h2>
+
+    <p className="text-slate-400">
+        Select a career role and click Analyze Skill Gap.
+    </p>
+
+</div>
+
+)}
     </div>
 
   </div>

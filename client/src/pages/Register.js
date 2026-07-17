@@ -3,6 +3,7 @@ import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 function Register() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -67,7 +68,13 @@ const [cgpa, setCgpa] = useState("");
       alert("Registration failed");
     }
   };
+useEffect(() => {
 
+  if (localStorage.getItem("token")) {
+    navigate("/dashboard");
+  }
+
+}, [navigate]);
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1 className="text-4xl font-bold text-center">

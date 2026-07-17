@@ -1,24 +1,43 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import BackButton from "../components/BackButton";
-
 function Companies() {
-
+const [loading, setLoading] = useState(true);
   const [companies, setCompanies] = useState([]);
 
   const student_id = localStorage.getItem("student_id");
 
-  useEffect(() => {
+useEffect(() => {
 
-    if (!student_id) return;
+    setLoading(true);
 
-    API.get(
-      `/companies/eligibility/${student_id}`
-    )
-      .then(res => setCompanies(res.data))
-      .catch(err => console.error(err));
+    if (!student_id) {
+        setLoading(false);
+        return;
+    }
 
-  }, [student_id]);
+    API.get(`/companies/eligibility/${student_id}`)
+        .then((res) => {
+            setCompanies(res.data);
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
+
+}, [student_id]);
+if (loading) {
+    return (
+        <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
+            <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-cyan-500 border-t-transparent mx-auto mb-4"></div>
+                <p>Loading companies...</p>
+            </div>
+        </div>
+    );
+}
 
   return (
   <div className="min-h-screen bg-slate-900 text-white p-8">
@@ -49,9 +68,19 @@ function Companies() {
 
       {companies.length === 0 ? (
 
-        <p>No companies available</p>
+<div className="bg-slate-800 rounded-3xl p-10 text-center border border-slate-700">
 
-      ) : (
+    <h2 className="text-2xl font-bold mb-3">
+        No Matching Companies
+    </h2>
+
+    <p className="text-slate-400">
+        Upload your resume and improve your skills to unlock company recommendations.
+    </p>
+
+</div>
+
+) : (
 
         <div className="grid md:grid-cols-2 gap-8">
 
@@ -241,4 +270,5 @@ function Companies() {
   </div>
 );
 }
+
 export default Companies;
