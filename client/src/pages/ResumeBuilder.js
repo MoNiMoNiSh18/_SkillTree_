@@ -6,6 +6,7 @@ import { useRef } from "react";
 import ATSResume from "../templates/ATSResume";
 import InternshipResume from "../templates/InternshipResume";
 import FresherResume from "../templates/FresherResume";
+import BackButton from "../components/BackButton";
 
 function ResumeBuilder() {
   const resumeRef = useRef();
@@ -125,8 +126,9 @@ const scoreColor =
     : "bg-red-500";
 return (
 
-    <div className="min-h-screen bg-[#0f172a] text-white p-10">
-
+   <div className="min-h-screen bg-slate-900 text-white">
+    <BackButton/>
+    <div className="grid lg:grid-cols-12 gap-6 p-6">
       <div className="max-w-screen-2xl mx-auto px-6">
 
         <h1 className="text-4xl font-bold mb-3">
@@ -400,7 +402,7 @@ return (
 </div>
 </div>
       </div>
-
+</div>
     </div>
 
   );

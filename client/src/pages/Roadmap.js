@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
-import Navbar from "../components/Navbar";
 import SkillTreeGraph from "../components/SkillTreeGraph";
+import BackButton from "../components/BackButton";
 
 function Roadmap() {
 
@@ -30,83 +30,99 @@ function Roadmap() {
   };
 
   return (
+  <div className="min-h-screen bg-slate-900 text-white p-8">
 
-    <div className="min-h-screen bg-slate-900 text-white p-6">
+    {/* Header */}
 
-      <Navbar />
+    <div className="flex items-center justify-between mb-10">
 
-      <div className="max-w-5xl mx-auto">
+      <BackButton />
 
-        {/* HEADER */}
+      <div className="flex-1 text-center">
 
-        <div className="mb-10">
+        <h1 className="text-4xl font-bold">
+          SkillTree Roadmap
+        </h1>
 
-          <h1 className="text-4xl font-bold mb-2">
-            🌳 SkillTree Roadmap
-          </h1>
+        <p className="text-slate-400 mt-2">
+          Track your growth branch by branch
+        </p>
 
-          <p className="text-slate-400">
-            Track your growth branch by branch
-          </p>
-
-        </div>
-
-        {/* SELECT ROLE */}
-
-        <div className="bg-slate-800 rounded-3xl p-6 shadow-xl mb-8">
-
-          <h2 className="text-2xl font-semibold mb-4">
-            Choose Career Path
-          </h2>
-
-          <div className="flex flex-col md:flex-row gap-4">
-
-            <select
-            className="bg-slate-800 text-white p-3 rounded-xl border border-slate-600"
-            onChange={(e) => setRole(e.target.value)}
-            >
-
-              <option className="text-black">Select Role</option>
-
-              <option className="text-black">Full Stack Developer</option>
-
-              <option className="text-black">AI Engineer</option>
-
-              <option className="text-black">Blockchain Developer</option>
-
-            </select>
-
-            <button
-              onClick={analyze}
-              className="bg-cyan-500 hover:bg-cyan-600 transition px-6 py-4 rounded-xl font-bold"
-            >
-              Analyze Skill Gap
-            </button>
-
-          </div>
-
-        </div>
-
-{result && (
-
-  <div className="mt-10">
-
-    <h2 className="text-3xl font-bold mb-6">
-      🌳 Skill Progression Tree
-    </h2>
-
-    <SkillTreeGraph
-      have={result.have}
-      missing={result.missing}
-    />
-
-  </div>
-
-)}
       </div>
 
+      <div className="w-40"></div>
+
     </div>
-  );
+
+    <div className="max-w-5xl mx-auto">
+
+      {/* Career Path */}
+
+      <div className="bg-slate-800 rounded-3xl p-6 shadow-xl mb-8">
+
+        <h2 className="text-2xl font-semibold mb-4">
+          Choose Career Path
+        </h2>
+
+        <div className="flex flex-col md:flex-row gap-4">
+
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="flex-1 bg-slate-700 text-white p-3 rounded-xl border border-slate-600 outline-none"
+          >
+            <option value="">
+              Select Role
+            </option>
+
+            <option value="Full Stack Developer">
+              Full Stack Developer
+            </option>
+
+            <option value="AI Engineer">
+              AI Engineer
+            </option>
+
+            <option value="Blockchain Developer">
+              Blockchain Developer
+            </option>
+
+          </select>
+
+          <button
+            onClick={analyze}
+            className="bg-cyan-500 hover:bg-cyan-600 transition px-6 py-3 rounded-xl font-semibold"
+          >
+            Analyze Skill Gap
+          </button>
+
+        </div>
+
+      </div>
+
+      {/* Result */}
+
+      {result && (
+
+        <div className="bg-slate-800 rounded-3xl p-6 shadow-xl">
+
+          <h2 className="text-3xl font-bold mb-6">
+            Skill Progression Tree
+          </h2>
+
+          <SkillTreeGraph
+            have={result.have}
+            missing={result.missing}
+          />
+
+        </div>
+
+      )}
+
+    </div>
+
+  </div>
+);
 }
 
 export default Roadmap;

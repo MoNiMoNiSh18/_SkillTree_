@@ -1,8 +1,8 @@
 import { useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 function Resume() {
 
   const [file, setFile] = useState(null);
@@ -74,41 +74,8 @@ function Resume() {
   };
 
 return (
-
-  <div className="min-h-screen bg-[#0f172a] text-white flex">
-
-    {/* SIDEBAR */}
-
-    <div className="w-72 bg-slate-900 border-r border-slate-800 p-6 flex flex-col justify-between">
-
-      <div>
-
-        <div className="mb-12">
-
-          <h1 className="text-3xl font-bold">
-            SkillTree
-          </h1>
-
-          <p className="text-slate-400 mt-2 text-sm">
-            AI Career Ecosystem
-          </p>
-
-        </div>
-
-        <div className="flex flex-col gap-3">
-
-          <button className="bg-slate-800 p-4 rounded-2xl border border-slate-700 text-left">
-            Resume
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    {/* MAIN CONTENT */}
-
+<div className="min-h-screen bg-slate-900 text-white">
+    <BackButton />
     <div className="flex-1 p-10 overflow-y-auto">
 
       {/* HEADER */}
@@ -209,8 +176,8 @@ return (
       )}
 
     </div>
+</div>
 
-  </div>
 
 );
 }

@@ -28,7 +28,11 @@ exports.login = (req, res) => {
     const { email, password } = req.body;
 
     const sql = `
-    SELECT u.id as user_id, s.id as student_id, u.password
+SELECT
+u.id as user_id,
+u.name,
+s.id as student_id,
+u.password
     FROM users u
     JOIN students s ON u.id = s.user_id
     WHERE u.email = ?
@@ -54,10 +58,11 @@ exports.login = (req, res) => {
             { expiresIn: "1h" }
         );
 
-        res.json({
-            message: "Login successful",
-            token,
-            student_id: user.student_id
-        });
+res.json({
+    message: "Login successful",
+    token,
+    student_id: user.student_id,
+    name: user.name
+});
     });
 };
