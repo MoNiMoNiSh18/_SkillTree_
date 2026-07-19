@@ -10,8 +10,6 @@ const [loading, setLoading] = useState(false);
 
   const [skills, setSkills] = useState([]);
 
-  const [readiness, setReadiness] = useState(0);
-
   const navigate = useNavigate();
   const upload = async () => {
     setLoading(true)
@@ -53,14 +51,7 @@ const [loading, setLoading] = useState(false);
         formData
       );
 
-      setSkills(res.data.detectedSkills);
-      const readinessRes = await API.get(
-        `/readiness/${student_id}`
-      );
-
-      setReadiness(
-        readinessRes.data.readiness_score
-      );
+      setSkills(res.data.detectedSkills);      
       setLoading(false);
     } catch (err) {
 

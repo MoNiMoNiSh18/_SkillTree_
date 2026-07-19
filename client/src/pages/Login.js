@@ -1,7 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 function Login() {

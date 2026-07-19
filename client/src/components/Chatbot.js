@@ -4,9 +4,6 @@ import API from "../services/api";
 function Chatbot() {
   const [message, setMessage] = useState("");
   const [reply, setReply] = useState("");
-
-  const student_id = localStorage.getItem("student_id");
-
   const sendMessage = async () => {
   try {
     const student_id = localStorage.getItem("student_id");

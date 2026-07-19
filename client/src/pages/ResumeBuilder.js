@@ -1,7 +1,6 @@
 import { useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import { saveAs } from "file-saver";
 import { useRef } from "react";
 import ATSResume from "../templates/ATSResume";
 import InternshipResume from "../templates/InternshipResume";

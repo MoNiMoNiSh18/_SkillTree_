@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import Chatbot from "../components/Chatbot";
-import { Link,useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
 function Dashboard() {
@@ -10,7 +9,7 @@ const [loading, setLoading] = useState(true);
   const [skills, setSkills] = useState([]);
   const studentName =localStorage.getItem("name");
   const student_id = localStorage.getItem("student_id");
-const navigate=useNavigate();
+
   useEffect(() => {
 
     setLoading(true);
@@ -32,15 +31,6 @@ const navigate=useNavigate();
     });
 
 }, [student_id]);
-const handleLogout = () => {
-
-    localStorage.removeItem("token");
-    localStorage.removeItem("student_id");
-    localStorage.removeItem("name");
-
-    navigate("/");
-
-};
 if (loading) {
 
     return (
