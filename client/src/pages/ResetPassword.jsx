@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import API from "../services/api";
-import { Toaster } from "react-hot-toast";
 import toast from "react-hot-toast";
 function ResetPassword() {
 
