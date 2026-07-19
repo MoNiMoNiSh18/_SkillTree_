@@ -15,7 +15,6 @@ const companyName = location.state?.companyName;
 
   const submitInterview = () => {
 
-  // Remove saved answers
   localStorage.removeItem("interviewAnswers");
 
  navigate("/interview-report", {

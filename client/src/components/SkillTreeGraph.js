@@ -16,8 +16,8 @@ function SkillTreeGraph({ have, missing }) {
 
     data: {
       label: have.includes(skill)
-        ? `✅ ${skill}`
-        : `🔒 ${skill}`
+        ? `Go! ${skill}`
+        : `Locked! ${skill}`
     },
 
     position: {

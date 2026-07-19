@@ -27,8 +27,6 @@ function Chatbot() {
 
   <div className="mt-10">
 
-    {/* SUGGESTIONS */}
-
     <div className="bg-slate-800 rounded-2xl p-5 mb-6">
 
       <div className="flex flex-wrap gap-3">
@@ -53,8 +51,6 @@ function Chatbot() {
 
     </div>
 
-    {/* INPUT SECTION */}
-
     <div className="flex gap-4 mb-6">
 
       <input
@@ -72,8 +68,6 @@ function Chatbot() {
       </button>
 
     </div>
-
-    {/* BOT RESPONSE */}
 
     <div className="bg-slate-800 text-white p-5 rounded-2xl border border-slate-700">
 

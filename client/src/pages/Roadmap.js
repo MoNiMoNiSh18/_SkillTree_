@@ -32,8 +32,6 @@ function Roadmap() {
   return (
   <div className="min-h-screen bg-slate-900 text-white p-8">
 
-    {/* Header */}
-
     <div className="flex items-center justify-between mb-10">
 
       <BackButton />
@@ -55,8 +53,6 @@ function Roadmap() {
     </div>
 
     <div className="max-w-5xl mx-auto">
-
-      {/* Career Path */}
 
       <div className="bg-slate-800 rounded-3xl p-6 shadow-xl mb-8">
 
@@ -99,8 +95,6 @@ function Roadmap() {
         </div>
 
       </div>
-
-      {/* Result */}
 
       {result && (
 

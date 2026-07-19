@@ -27,8 +27,6 @@ const startInterview = () => {
   return (
   <div className="min-h-screen bg-slate-900 text-white p-8">
 
-    {/* Header */}
-
     <div className="flex items-center justify-between mb-10">
 
       <BackButton />
@@ -92,8 +90,6 @@ const startInterview = () => {
         ))}
 
       </div>
-
-      {/* Interview Details */}
 
       {selectedCompany && selectedRole && (
 

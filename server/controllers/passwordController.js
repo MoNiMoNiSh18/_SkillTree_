@@ -1,7 +1,5 @@
 const db = require("../config/db");
 const bcrypt = require("bcryptjs");
-
-// Check whether email exists
 exports.forgotPassword = (req, res) => {
 
     const { email } = req.body;
@@ -29,7 +27,6 @@ exports.forgotPassword = (req, res) => {
 
 };
 
-// Update password
 exports.resetPassword = (req, res) => {
 
     const { email, password } = req.body;

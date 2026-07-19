@@ -42,8 +42,6 @@ if (loading) {
   return (
   <div className="min-h-screen bg-slate-900 text-white p-8">
 
-    {/* Header */}
-
     <div className="flex items-center justify-between mb-10">
 
       <BackButton />
@@ -96,8 +94,6 @@ if (loading) {
               }`}
             >
 
-              {/* TOP */}
-
               <div className="flex justify-between items-start mb-8">
 
                 <div>
@@ -130,8 +126,6 @@ if (loading) {
                 </div>
 
               </div>
-
-              {/* READINESS */}
 
               <div className="mb-8">
 
@@ -167,8 +161,6 @@ if (loading) {
 
               </div>
 
-              {/* STRENGTHS */}
-
               <div className="mb-8">
 
                 <h3 className="text-lg font-semibold mb-4 text-green-400">
@@ -202,8 +194,6 @@ if (loading) {
 
               </div>
 
-              {/* MISSING */}
-
               <div className="mb-8">
 
                 <h3 className="text-lg font-semibold mb-4 text-red-400">
@@ -236,8 +226,6 @@ if (loading) {
                 </div>
 
               </div>
-
-              {/* AI INSIGHT */}
 
               <div className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5">
 

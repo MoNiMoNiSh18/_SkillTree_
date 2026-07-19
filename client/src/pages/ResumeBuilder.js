@@ -142,7 +142,6 @@ return (
         <div className="grid lg:grid-cols-12 gap-8">
          <div className="lg:col-span-4 sticky top-24 h-fit bg-slate-800/80 border border-slate-700 rounded-3xl p-8 space-y-5">
          
-          {/* FORM */}
           <div className="mb-6">
 
   <label className="block mb-3 font-semibold text-slate-300">
@@ -295,7 +294,6 @@ return (
           </div>
           <div className="lg:col-span-8 space-y-5">
 
-  {/* ATS SCORE CARD */}
 
   <div className="bg-slate-800 rounded-2xl p-6">
 
@@ -350,7 +348,6 @@ return (
 
   </div>
 
-  {/* Resume Header */}
 
   <div className="flex justify-between items-center">
 
@@ -370,16 +367,12 @@ return (
 
   </div>
 
-  {/* Resume */}
-
   <div
     ref={resumeRef}
     className="bg-white rounded-3xl shadow-lg overflow-hidden"
   >
     {renderTemplate()}
   </div>
-
-  {/* Download Buttons */}
 
   <div className="flex gap-4">
 

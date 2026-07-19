@@ -1,6 +1,4 @@
 const db = require("../config/db");
-
-// Apply to company
 exports.apply = (req, res) => {
     const { student_id, company_id } = req.body;
 
@@ -13,7 +11,6 @@ exports.apply = (req, res) => {
     });
 };
 
-// Get applications for student
 exports.getStudentApplications = (req, res) => {
     const { student_id } = req.params;
 
@@ -31,7 +28,6 @@ exports.getStudentApplications = (req, res) => {
     });
 };
 
-// Update status (admin)
 exports.updateStatus = (req, res) => {
     const { application_id, status } = req.body;
 

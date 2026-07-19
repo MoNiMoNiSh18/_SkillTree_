@@ -64,11 +64,8 @@ if (loading) {
 
   <div className="min-h-screen bg-[#0f172a] text-white flex">
 <Sidebar />
-    {/* MAIN CONTENT */}
 
     <div className="flex-1 p-10 overflow-y-auto">
-
-      {/* HEADER */}
 
       <div className="mb-10">
         <h1 className="text-4xl font-bold">Welcome back, {studentName}.</h1>
@@ -78,8 +75,6 @@ if (loading) {
         </p>
 
       </div>
-
-      {/* CONTENT GRID */}
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="bg-slate-800 border border-slate-700 rounded-3xl p-6">
@@ -109,8 +104,6 @@ width:`${readiness}%`
 </div>
 
 </div>
-        {/* SKILLS */}
-
         <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6">
 
           <h2 className="text-2xl font-semibold mb-6">
@@ -140,8 +133,7 @@ width:`${readiness}%`
 
         </div>
 
-        {/* AI MENTOR */}
-
+        
         <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6">
 
           <h2 className="text-2xl font-semibold mb-6">

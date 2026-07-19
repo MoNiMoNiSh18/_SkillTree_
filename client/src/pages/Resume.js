@@ -54,9 +54,6 @@ const [loading, setLoading] = useState(false);
       );
 
       setSkills(res.data.detectedSkills);
-
-      // FETCH READINESS SCORE
-
       const readinessRes = await API.get(
         `/readiness/${student_id}`
       );
@@ -78,8 +75,6 @@ return (
     <BackButton />
     <div className="flex-1 p-10 overflow-y-auto">
 
-      {/* HEADER */}
-
       <div className="mb-10">
 
         <h1 className="text-4xl font-bold tracking-tight">
@@ -92,11 +87,7 @@ return (
 
       </div>
 
-      {/* ACTION CARDS */}
-
       <div className="grid md:grid-cols-2 gap-8 mb-10">
-
-        {/* UPLOAD */}
 
         <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-8">
 
@@ -124,8 +115,6 @@ return (
 
         </div>
 
-        {/* CREATE */}
-
         <div className="bg-slate-800/80 border border-slate-700 rounded-3xl p-8">
 
           <h2 className="text-2xl font-semibold mb-3">
@@ -146,8 +135,6 @@ return (
         </div>
 
       </div>
-
-      {/* DETECTED SKILLS */}
 
       {skills.length > 0 && (
 

@@ -78,15 +78,11 @@ return (
     <BackButton />
  <div className="grid lg:grid-cols-12 gap-6 mt-6">
 
-      {/* LEFT PANEL */}
-
       <div className="lg:col-span-3 bg-slate-800 rounded-2xl p-5">
 
         <h2 className="text-2xl font-bold mb-5">
           Problems
         </h2>
-
-        {/* Search */}
 
         <input
           type="text"
@@ -96,7 +92,6 @@ return (
           className="w-full p-3 rounded-xl bg-slate-700 mb-4 outline-none"
         />
 
-        {/* Difficulty */}
 
         <select
           value={difficulty}
@@ -108,8 +103,6 @@ return (
           <option>Medium</option>
           <option>Hard</option>
         </select>
-
-        {/* Problems */}
 
         <div className="space-y-3">
 
@@ -155,11 +148,8 @@ return (
 
       </div>
 
-      {/* RIGHT PANEL */}
 
       <div className="lg:col-span-9 space-y-5">
-
-        {/* Problem */}
 
         <div className="bg-slate-800 rounded-2xl p-6">
 
@@ -215,8 +205,6 @@ return (
 
         </div>
 
-        {/* Language */}
-
         <select
           value={language}
           onChange={(e)=>setLanguage(e.target.value)}
@@ -228,8 +216,6 @@ return (
           <option value="javascript">JavaScript</option>
 
         </select>
-
-        {/* Editor */}
 
         <Editor
           height="500px"
@@ -248,7 +234,6 @@ return (
   </pre>
 
 </div>
-        {/* Buttons */}
 
         <div className="flex gap-4">
 
