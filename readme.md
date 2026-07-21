@@ -1,45 +1,129 @@
-# SkillTree
+#  SkillTree
 
-SkillTree is a full-stack web application developed to help students prepare for campus placements. It combines resume building, resume analysis, career roadmaps, company readiness tracking, and interview practice into a single platform.
+A full-stack placement preparation platform that helps students track their skills, analyze resumes, discover career roadmaps, practice interviews, and evaluate company readiness—all in one place.
 
-The idea for this project came from my own placement preparation. I noticed that students often use different websites for resumes, interview practice, coding, and career guidance. SkillTree aims to bring these features together so students can understand their current skill level and prepare more effectively.
+> Built to simplify placement preparation by bringing multiple tools into a single platform.
 
-## Features
+---
 
-- Secure user authentication using JWT
-- Resume Builder with multiple templates
-- Resume Analyzer with skill extraction
-- Career Roadmaps for different software roles
-- Company Readiness Checker
-- Interview Simulator with company-based practice
-- Coding Practice Arena (In Progress)
+##  Live Demo
 
-## Tech Stack
+### Frontend
+https://skill-tree-silk.vercel.app/
 
-**Frontend**
+### Backend API
+https://skilltree-api-cwjk.onrender.com/
+
+---
+
+##  Preview
+
+> Screenshots will be added soon.
+
+---
+
+#  Features
+
+###  Authentication
+- Secure Login & Registration
+- JWT Authentication
+- Password Reset
+
+###  Resume Builder
+- Multiple Resume Templates
+- ATS-Friendly Layouts
+- PDF Export
+
+###  Resume Analyzer
+- Upload Resume
+- Automatic Skill Extraction
+- Skill Storage
+
+### Placement Readiness
+- Readiness Score
+- Visual Progress Bar
+- Skill Tracking
+
+###  Company Recommendation Engine
+- Company Eligibility Check
+- Missing Skills Detection
+- Personalized AI Insights
+
+###  Career Roadmaps
+- Frontend Developer
+- Backend Developer
+- Full Stack Developer
+- AI/ML Engineer
+- DevOps Engineer
+
+###  AI Mentor
+- Placement Guidance
+- Resume Tips
+- Interview Assistance
+
+### Interview Simulator
+- Company-Based Questions
+- Performance Report
+- Progress Tracking
+
+### Coding Practice Arena 
+- Problems based on difficulty levels
+- Clues and Discusssions *(Coming Soon)*
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
 - React.js
 - Tailwind CSS
+- Axios
+- React Router
+- React Hot Toast
 
-**Backend**
+## Backend
+
 - Node.js
 - Express.js
+- JWT Authentication
+- bcrypt.js
 
-**Database**
-- MySQL
+## Database
 
-**Authentication**
-- JWT (JSON Web Token)
+- MySQL (Railway)
 
-## Project Structure
+## Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- Railway (Database)
+
+---
+
+# 📂 Project Structure
 
 ```
-SkillTree/
-├── client/
-├── server/
+SkillTree
+│
+├── client
+│   ├── components
+│   ├── pages
+│   ├── services
+│   └── assets
+│
+├── server
+│   ├── controllers
+│   ├── routes
+│   ├── config
+│   ├── middleware
+│   └── app.js
+│
 └── README.md
 ```
 
-## Installation
+---
+
+# ⚙ Installation
 
 Clone the repository
 
@@ -47,39 +131,98 @@ Clone the repository
 git clone https://github.com/MoNiMoNiSh18/SkillTree.git
 ```
 
-Install dependencies
+Move into the project
 
 ```bash
-npm install
+cd SkillTree
 ```
 
-Start the frontend
+### Install Frontend
 
 ```bash
+cd client
+npm install
 npm start
 ```
 
-Start the backend
+### Install Backend
 
 ```bash
-npm run server
+cd server
+npm install
+npm start
 ```
 
-## Future Improvements
+---
 
+# 🔐 Environment Variables
+
+Backend (.env)
+
+```env
+PORT=5000
+
+DB_HOST=hayabusa.proxy.rlwy.net:24444
+
+DB_PORT=24444
+
+DB_NAME=placement_db
+
+DB_USER=root
+
+DB_PASS=PTMcKzQDytnaQqHMZHoRnSmXfENGsCKp
+
+JWT_SECRET=skilltree_secret
+```
+
+Frontend (.env)
+
+```env
+REACT_APP_API=https://skill-tree-silk.vercel.app/
+```
+
+---
+
+# 🚀 Future Improvements
+
+- AI Resume Feedback
 - AI Career Mentor
-- Company-specific interview database
-- Online code execution
-- Resume intelligence
-- Placement analytics
-- Webcam-based interview proctoring
+- Online Code Execution
+- Resume Intelligence
+- Placement Analytics Dashboard
+- Company-Specific Interview Database
+- Webcam-Based Interview Proctoring
+- Mock Interview Evaluation
+- Coding Contest Platform
 
-## Author
+---
+
+# 👨‍💻 Author
 
 **Monish V**
 
-B.E. Computer Science and Engineering
+B.E. Computer Science & Engineering
 
 Acharya Institute of Technology
 
-GitHub: https://github.com/MoNiMoNiSh18
+### GitHub
+
+https://github.com/MoNiMoNiSh18
+
+### LinkedIn
+
+https://www.linkedin.com/in/monish-v-1820j06/
+
+---
+
+# Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+It motivates me to build more open-source projects.
+
+---
+
+## License
+
+This project is licensed under the MIT License.

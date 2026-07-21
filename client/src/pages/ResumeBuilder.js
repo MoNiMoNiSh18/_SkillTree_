@@ -125,11 +125,10 @@ const scoreColor =
     : "bg-red-500";
 return (
 
-   <div className="min-h-screen bg-slate-900 text-white">
-    <BackButton/>
-    <div className="grid lg:grid-cols-12 gap-6 p-6">
-      <div className="max-w-screen-2xl mx-auto px-6">
+<div className="min-h-screen bg-slate-900 text-white">
+  <BackButton/>
 
+  <div className="max-w-7xl mx-auto px-6 py-6">
         <h1 className="text-4xl font-bold mb-3">
           AI Resume Builder
         </h1>
@@ -139,7 +138,7 @@ return (
         </p>
 
         <div className="grid lg:grid-cols-12 gap-8">
-         <div className="lg:col-span-4 sticky top-24 h-fit bg-slate-800/80 border border-slate-700 rounded-3xl p-8 space-y-5">
+         <div className="lg:col-span-4 sticky top-24 self-start h-fit bg-slate-800/80 border border-slate-700 rounded-3xl p-8 space-y-5">
          
           <div className="mb-6">
 
@@ -291,7 +290,7 @@ return (
             />            
             
           </div>
-          <div className="lg:col-span-8 space-y-5">
+          <div className="lg:col-span-8 space-y-5 min-w-0">
 
 
   <div className="bg-slate-800 rounded-2xl p-6">
@@ -365,14 +364,14 @@ return (
     </span>
 
   </div>
-
+<div className="flex justify-center">
   <div
     ref={resumeRef}
-    className="bg-white rounded-3xl shadow-lg overflow-hidden"
+    className="bg-white rounded-3xl shadow-lg overflow-hidden p-10"
   >
     {renderTemplate()}
   </div>
-
+</div>
   <div className="flex gap-4">
 
     <button
@@ -395,8 +394,6 @@ return (
 </div>
       </div>
 </div>
-    </div>
-
   );
 }
 
