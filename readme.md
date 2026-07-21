@@ -17,8 +17,45 @@ https://skilltree-api-cwjk.onrender.com/
 ---
 
 ##  Preview
+### Login Page
 
-> Screenshots will be added soon.
+![Login](./screenshots/login.png)
+
+---
+
+### Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+---
+
+### Resume Builder
+
+![Resume Builder](./screenshots/resume-builder.png)
+
+---
+
+### Resume Analyzer
+
+![Resume Analyzer](./screenshots/resume-upload.png)
+
+---
+
+### Company Recommendation Engine
+
+![Companies](./screenshots/companies.png)
+
+---
+
+### Career Roadmaps
+
+![Roadmap](./screenshots/roadmap.png)
+
+---
+
+### Interview Simulator
+
+![Interview](./screenshots/interview.png)
 
 ---
 
